@@ -153,6 +153,16 @@ Open `http://localhost:5173` in your browser.
 
 ---
 
+## 👥 Team & Submission Details
+
+- **Author / Developer:** [Divyanshu Kumar Dubey](https://github.com/Divyanshu-Kumar-Dubey)
+- **Repository:** [https://github.com/Divyanshu-Kumar-Dubey/alexa-plus-omniassist](https://github.com/Divyanshu-Kumar-Dubey/alexa-plus-omniassist)
+- **Hackathon:** [Build, Ship, Shape: Amazon Developer Hackathon 2026](https://amazonappdev2026.devpost.com/)
+- **Submission Track:** Alexa+ (Primary) | AWS Builder & Open Source (Mini Challenges)
+
+---
+
 ## 📄 License
 
 This project is licensed under the [MIT License](LICENSE) - open and free for the global developer community.
+

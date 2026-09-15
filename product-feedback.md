@@ -42,6 +42,11 @@
 
 ## 3. Open Source Mini-Challenge Answers
 
-- **Repository:** `alexa-plus-omniassist` (Public GitHub repository with full source code, open-source MIT License).
-- **License:** MIT License (clearly declared in the root `LICENSE` file and repository about section).
-- **Why it matters:** Provides developers worldwide with a fully working, plug-and-play template for building Streamable HTTP MCP servers and simulated Alexa+ multimodal experiences without vendor lock-in.
+- **GitHub Username:** `Divyanshu-Kumar-Dubey`
+- **Project Repository URL:** https://github.com/Divyanshu-Kumar-Dubey/alexa-plus-omniassist
+- **Contribution URL:** https://github.com/Divyanshu-Kumar-Dubey/alexa-plus-omniassist
+- **License:** MIT License (declared in root `LICENSE` file and visible in the repository About section).
+- **What We Did:** Built an end-to-end open-source implementation of a self-hosted Model Context Protocol (MCP) server adhering to spec version `2025-11-25` over Streamable HTTP and SSE, coupled with an interactive Alexa+ ambient multimodal web simulator.
+- **How It Works:** The server exposes standardized JSON-RPC 2.0 endpoints (`POST /mcp`, `GET /sse`) with 6 IoT, scheduling, and device orchestration tools. The web canvas connects to the MCP server, simulates Echo Show ambient cards with voice and audio visualizer, and executes multi-device routines in real time.
+- **Why It Matters:** Gives the global Alexa+ developer ecosystem an open, extensible, and fully tested reference architecture for building agentic MCP integrations over remote Streamable HTTP without proprietary lock-in.
+

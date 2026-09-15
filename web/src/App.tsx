@@ -46,7 +46,7 @@ export default function App() {
   const [ringSnapshotTime, setRingSnapshotTime] = useState('11:20 AM');
 
   const inputRef = useRef<HTMLInputElement>(null);
-  const logEndRef = useRef<HTMLDivElement>(null);
+  const consoleFeedRef = useRef<HTMLDivElement>(null);
   const recognitionRef = useRef<any>(null);
 
   // Initial State Fetch & Real-Time SSE Subscription
@@ -76,9 +76,11 @@ export default function App() {
     return unsubscribe;
   }, []);
 
-  // Auto-scroll console
+  // Auto-scroll console container internally without scrolling the browser window
   useEffect(() => {
-    logEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+    if (consoleFeedRef.current) {
+      consoleFeedRef.current.scrollTop = consoleFeedRef.current.scrollHeight;
+    }
   }, [mcpLogs]);
 
   // High Quality Web Speech Synthesis
@@ -820,7 +822,7 @@ export default function App() {
               </button>
             </div>
 
-            <div className="console-feed-window">
+            <div className="console-feed-window" ref={consoleFeedRef}>
               {filteredLogs.length === 0 ? (
                 <div className="empty-console-state">
                   <span style={{ fontSize: '28px', opacity: 0.5 }}>⚡</span>
@@ -854,7 +856,6 @@ export default function App() {
                   </div>
                 ))
               )}
-              <div ref={logEndRef} />
             </div>
           </aside>
         </div>

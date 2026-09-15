@@ -77,7 +77,6 @@
 
 html {
   color-scheme: dark;
-  scroll-behavior: smooth;
 }
 
 body {
@@ -90,6 +89,7 @@ body {
   overflow-x: hidden;
   position: relative;
   line-height: 1.5;
+  text-rendering: optimizeLegibility;
 }
 
 /* ==========================================================================
@@ -105,14 +105,19 @@ body {
   pointer-events: none;
   z-index: 0;
   overflow: hidden;
+  transform: translateZ(0);
+  will-change: transform;
+  contain: strict;
 }
 
 .aurora-sphere {
   position: absolute;
   border-radius: 50%;
-  filter: blur(90px);
-  opacity: 0.45;
+  filter: blur(75px);
+  opacity: 0.42;
   animation: floatOrb 18s ease-in-out infinite alternate;
+  will-change: transform;
+  transform: translateZ(0);
 }
 
 .aurora-1 {
@@ -192,14 +197,16 @@ h1, h2, h3, h4, h5, h6 {
 
 .glass-card {
   background: var(--bg-card);
-  backdrop-filter: blur(24px) saturate(190%);
-  -webkit-backdrop-filter: blur(24px) saturate(190%);
+  backdrop-filter: blur(14px) saturate(160%);
+  -webkit-backdrop-filter: blur(14px) saturate(160%);
   border: 1px solid var(--glass-border);
   box-shadow: var(--glass-shadow), var(--glass-specular);
   border-radius: var(--radius-lg);
-  transition: all var(--transition-normal);
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), background 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
   position: relative;
   overflow: visible;
+  transform: translateZ(0);
+  contain: layout style;
 }
 
 .glass-card::before {
@@ -216,7 +223,7 @@ h1, h2, h3, h4, h5, h6 {
 .glass-card:hover {
   border-color: var(--glass-border-hover);
   background: var(--bg-card-hover);
-  transform: translateY(-2px);
+  transform: translateY(-2px) translateZ(0);
   box-shadow: 0 20px 48px -12px rgba(0, 0, 0, 0.75), 0 0 25px rgba(0, 202, 255, 0.1);
 }
 
@@ -461,6 +468,8 @@ h1, h2, h3, h4, h5, h6 {
   border: 2px solid var(--alexa-cyan);
   opacity: 0.3;
   animation: rotateGlow 10s linear infinite;
+  will-change: transform;
+  transform: translateZ(0);
 }
 
 .ring-layer-2 {
@@ -471,6 +480,8 @@ h1, h2, h3, h4, h5, h6 {
   filter: blur(12px);
   opacity: 0.7;
   animation: rotateGlow 6s linear infinite reverse;
+  will-change: transform;
+  transform: translateZ(0);
 }
 
 .alexa-halo-ring.listening .ring-layer-2 {
@@ -635,15 +646,17 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 13px;
   font-weight: 500;
   cursor: pointer;
-  transition: all var(--transition-fast);
-  backdrop-filter: blur(12px);
+  transition: transform 0.15s ease, background-color 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease, color 0.15s ease;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transform: translateZ(0);
 }
 
 .action-chip-pill:hover {
   color: #ffffff;
   background: rgba(0, 202, 255, 0.12);
   border-color: var(--alexa-cyan);
-  transform: translateY(-2px);
+  transform: translateY(-2px) translateZ(0);
   box-shadow: 0 4px 15px rgba(0, 202, 255, 0.2);
 }
 
@@ -1071,11 +1084,12 @@ input:checked + .switch-track::before {
   box-shadow: 0 0 15px var(--alexa-cyan);
   opacity: 0.7;
   animation: sweepDown 4s linear infinite;
+  will-change: transform;
 }
 
 @keyframes sweepDown {
-  0% { top: -5%; }
-  100% { top: 105%; }
+  0% { transform: translateY(-10px); }
+  100% { transform: translateY(225px); }
 }
 
 .hud-target-box {

@@ -144,36 +144,76 @@ export default function App() {
   // Interactive Device Direct Control (Calls MCP Tool)
   const handleDeviceToggle = useCallback(
     async (device: DeviceState) => {
-      let args: any = { deviceId: device.id };
+      const start = performance.now();
 
       if (device.category === 'lighting') {
-        args.action = 'set_power';
-        args.value = !device.state.power;
+        // Use smart_home_control with correct 'target' param and turn_on/turn_off
+        const action = device.state.power ? 'turn_off' : 'turn_on';
+        const args = { target: device.name, action };
+        try {
+          const result = await mcpCallTool('smart_home_control', args);
+          const latencyMs = Math.round(performance.now() - start);
+          setMcpLogs((prev) => [
+            ...prev,
+            {
+              id: `manual_${Date.now()}`,
+              timestamp: new Date().toLocaleTimeString(),
+              method: 'tools/call (Direct Control)',
+              params: { name: 'smart_home_control', arguments: args },
+              result: JSON.stringify(result),
+              latencyMs,
+            },
+          ]);
+          const snapshot = await mcpGetState();
+          setDevices(snapshot.devices || []);
+        } catch (e) {
+          console.error('Direct device control error:', e);
+        }
       } else if (device.category === 'security') {
-        args.action = device.state.locked ? 'unlock' : 'lock';
+        const action = device.state.locked ? 'unlock' : 'lock';
+        const args = { target: device.name, action };
+        try {
+          const result = await mcpCallTool('smart_home_control', args);
+          const latencyMs = Math.round(performance.now() - start);
+          setMcpLogs((prev) => [
+            ...prev,
+            {
+              id: `manual_${Date.now()}`,
+              timestamp: new Date().toLocaleTimeString(),
+              method: 'tools/call (Direct Control)',
+              params: { name: 'smart_home_control', arguments: args },
+              result: JSON.stringify(result),
+              latencyMs,
+            },
+          ]);
+          const snapshot = await mcpGetState();
+          setDevices(snapshot.devices || []);
+        } catch (e) {
+          console.error('Direct device control error:', e);
+        }
       } else if (device.category === 'media') {
-        args.action = 'toggle_playback';
-      } else {
-        return;
-      }
-
-      try {
-        const result = await mcpCallTool('smart_home_control', args);
-        setMcpLogs((prev) => [
-          ...prev,
-          {
-            id: `manual_${Date.now()}`,
-            timestamp: new Date().toLocaleTimeString(),
-            method: 'tools/call (Direct Control)',
-            params: { name: 'smart_home_control', arguments: args },
-            result: JSON.stringify(result),
-            latencyMs: 18,
-          },
-        ]);
-        const snapshot = await mcpGetState();
-        setDevices(snapshot.devices || []);
-      } catch (e) {
-        console.error('Direct device control error:', e);
+        // Use execute_media_action for media devices
+        const action = device.state.playing ? 'pause' : 'play';
+        const args = { action };
+        try {
+          const result = await mcpCallTool('execute_media_action', args);
+          const latencyMs = Math.round(performance.now() - start);
+          setMcpLogs((prev) => [
+            ...prev,
+            {
+              id: `manual_${Date.now()}`,
+              timestamp: new Date().toLocaleTimeString(),
+              method: 'tools/call (Direct Control)',
+              params: { name: 'execute_media_action', arguments: args },
+              result: JSON.stringify(result),
+              latencyMs,
+            },
+          ]);
+          const snapshot = await mcpGetState();
+          setDevices(snapshot.devices || []);
+        } catch (e) {
+          console.error('Direct device control error:', e);
+        }
       }
     },
     []
@@ -184,9 +224,9 @@ export default function App() {
     const newTemp = currentTemp + delta;
     try {
       await mcpCallTool('smart_home_control', {
-        deviceId: 'climate_thermostat_hall',
-        action: 'set_target_temp',
-        value: newTemp,
+        target: 'thermostat',
+        action: 'set_temperature',
+        value: String(newTemp),
       });
       const snapshot = await mcpGetState();
       setDevices(snapshot.devices || []);
@@ -197,8 +237,10 @@ export default function App() {
 
   // Instant Ring Snapshot
   const handleTriggerSnapshot = useCallback(async () => {
+    const start = performance.now();
     try {
-      const res = await mcpCallTool('iot_camera_query', { cameraId: 'ring_doorbell_front' });
+      const res = await mcpCallTool('iot_camera_query', { cameraId: 'camera_front_door', queryType: 'live_snapshot' });
+      const latencyMs = Math.round(performance.now() - start);
       setRingSnapshotTime(new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }));
       setMcpLogs((prev) => [
         ...prev,
@@ -206,9 +248,9 @@ export default function App() {
           id: `cam_${Date.now()}`,
           timestamp: new Date().toLocaleTimeString(),
           method: 'tools/call',
-          params: { name: 'iot_camera_query', arguments: { cameraId: 'ring_doorbell_front' } },
+          params: { name: 'iot_camera_query', arguments: { cameraId: 'camera_front_door', queryType: 'live_snapshot' } },
           result: JSON.stringify(res),
-          latencyMs: 32,
+          latencyMs,
         },
       ]);
     } catch (e) {

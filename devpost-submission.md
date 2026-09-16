@@ -162,7 +162,7 @@ See [`friction-log.md`](file:///c:/Users/Ansh%20Dubey/.gemini/antigravity-ide/sc
 
 A broadcast-quality 1080p demo video matching the exact script and timing above is rendered and ready in the repository:
 - **Location:** [`assets/omniassist_alexa_demo.mp4`](assets/omniassist_alexa_demo.mp4)
-- **Specs:** 1920x1080 Full HD | 30 FPS | H.264 Video + AAC Audio | Size: ~3.8 MB
-- **Duration:** 2 minutes 07 seconds (strictly under the 3-minute Devpost cap)
-- **Voiceover:** Clear, professional American English narration
+- **Specs:** 1920x1080 Full HD | 30 FPS | H.264 Video + AAC Audio | Size: ~6.2 MB
+- **Duration:** 2 minutes 23 seconds (strictly under the 3-minute Devpost cap)
+- **Voiceover:** Deep, clear American male voiceover with studio broadcast mastering (EQ & dynamic compression)
 - **How to Submit:** Simply upload `assets/omniassist_alexa_demo.mp4` to your YouTube or Vimeo account (as *Public* or *Unlisted*), and paste the video link into the **"Demo video URL"** field on the [Devpost submission form](https://amazonappdev2026.devpost.com/)!

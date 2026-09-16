@@ -95,7 +95,7 @@ function Create-Slide {
 # Slide 1: Intro Title Card
 Create-Slide -Path "assets\slide_1_intro.png" `
     -BadgeText "AMAZON DEVELOPER HACKATHON 2026" `
-    -TitleText "🌟 OmniAssist Alexa+" `
+    -TitleText "OmniAssist Alexa+" `
     -SubtitleText "Next-Gen Autonomous Concierge powered by Model Context Protocol (MCP) & Amazon Bedrock" `
     -Bullets @(
         "Primary Track: Alexa+ (Self-Hosted Streamable HTTP MCP Server)",
@@ -108,7 +108,7 @@ Create-Slide -Path "assets\slide_1_intro.png" `
 # Slide 2: Architecture & Bedrock Core
 Create-Slide -Path "assets\slide_2_architecture.png" `
     -BadgeText "SYSTEM ARCHITECTURE & PROTOCOL" `
-    -TitleText "⚡ Streamable HTTP MCP + Bedrock Core" `
+    -TitleText "Streamable HTTP MCP + Bedrock Core" `
     -SubtitleText "Standardized decoupling of conversational reasoning from smart device execution" `
     -Bullets @(
         "Self-Hosted MCP Server: Spec 2025-11-25+ over chunked HTTP (POST /mcp) and SSE (GET /sse)",
@@ -121,7 +121,7 @@ Create-Slide -Path "assets\slide_2_architecture.png" `
 # Slide 3: Outro & GitHub Submission
 Create-Slide -Path "assets\slide_3_outro.png" `
     -BadgeText "DEVPOST SUBMISSION READY" `
-    -TitleText "🚀 Build, Ship, Shape: Ready for Production" `
+    -TitleText "Build, Ship, Shape: Ready for Production" `
     -SubtitleText "Fully tested, containerized, and open-sourced for the global Alexa+ developer community" `
     -Bullets @(
         "One-Command Launch: docker compose up --build (orchestrates MCP server & web simulator)",

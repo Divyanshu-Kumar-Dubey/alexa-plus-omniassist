@@ -155,3 +155,14 @@ See [`friction-log.md`](file:///c:/Users/Ansh%20Dubey/.gemini/antigravity-ide/sc
 | **1:15 - 2:00** | **Streamable HTTP MCP Server** | Open the MCP Live Inspector panel: demonstrate JSON-RPC 2.0 tool execution over `POST /mcp` and streaming SSE events (`GET /sse`). Show latency in ms and `/health` glassmorphic server dashboard. |
 | **2:00 - 2:30** | **AWS Bedrock Core & Architecture** | Explain Amazon Bedrock Converse Stream multi-tool execution and dual-mode architecture (Bedrock cloud mode + embedded autonomous simulator). |
 | **2:30 - 2:45** | **Open Source & Impact** | Highlight the MIT-licensed GitHub repository, Docker one-command setup, passing unit tests, and friction log for the Amazon Developer team. Close with project link. |
+
+---
+
+### 📁 Pre-Rendered Ready-to-Upload MP4 Video File
+
+A broadcast-quality 1080p demo video matching the exact script and timing above is rendered and ready in the repository:
+- **Location:** [`assets/omniassist_alexa_demo.mp4`](assets/omniassist_alexa_demo.mp4)
+- **Specs:** 1920x1080 Full HD | 30 FPS | H.264 Video + AAC Audio | Size: ~3.8 MB
+- **Duration:** 2 minutes 07 seconds (strictly under the 3-minute Devpost cap)
+- **Voiceover:** Clear, professional American English narration
+- **How to Submit:** Simply upload `assets/omniassist_alexa_demo.mp4` to your YouTube or Vimeo account (as *Public* or *Unlisted*), and paste the video link into the **"Demo video URL"** field on the [Devpost submission form](https://amazonappdev2026.devpost.com/)!

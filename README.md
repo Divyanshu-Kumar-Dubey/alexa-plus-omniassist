@@ -26,6 +26,10 @@
   <img src="./assets/demo_tour.webp" alt="OmniAssist Alexa+ Interactive Demo Walkthrough" width="100%" />
 </p>
 
+<p align="center">
+  🎬 <strong>Full 1080p Narrated Demo Video (under 3 min for Devpost):</strong> <a href="./assets/omniassist_alexa_demo.mp4"><code>assets/omniassist_alexa_demo.mp4</code></a>
+</p>
+
 ---
 
 ## 🎯 Vision & Overview

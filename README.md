@@ -10,6 +10,22 @@
 
 ---
 
+## 🎥 Visual Demo & Walkthrough
+
+<p align="center">
+  <img src="./assets/hero_dashboard.png" alt="OmniAssist Alexa+ Glassmorphic Dashboard" width="100%" />
+</p>
+
+<p align="center">
+  <em>Live interactive simulation running with Glassmorphism 2.0, dynamic Alexa halo ring, audio visualizer, real-time IoT controls, and Streamable HTTP MCP Inspector.</em>
+</p>
+
+<p align="center">
+  <img src="./assets/demo_tour.webp" alt="OmniAssist Alexa+ Interactive Demo Walkthrough" width="100%" />
+</p>
+
+---
+
 ## 🎯 Vision & Overview
 
 **OmniAssist Alexa+** is a complete, production-ready implementation of the next-generation **Alexa+** conversational assistant. Powered by open standards, it merges:

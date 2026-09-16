@@ -1,7 +1,7 @@
 # Amazon Developer Hackathon 2026: Official Product Feedback
 
 > **Submission Track:** Alexa+  
-> **Submitted by:** Ansh Dubey & Team  
+> **Submitted by:** Divyanshu Kumar Dubey (Ansh Dubey) & Team  
 > **Project:** OmniAssist Alexa+ (Next-Gen Autonomous Concierge)
 
 ---

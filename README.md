@@ -4,6 +4,8 @@
 [![MCP Spec](https://img.shields.io/badge/MCP%20Spec-2025--11--25%20Streamable%20HTTP-blue)](https://modelcontextprotocol.io/)
 [![AWS Builder](https://img.shields.io/badge/AWS%20Builder-Amazon%20Bedrock%20Integrated-232F3E?logo=amazon-aws)](https://aws.amazon.com/bedrock/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+[![CI Pipeline](https://github.com/Divyanshu-Kumar-Dubey/alexa-plus-omniassist/actions/workflows/ci.yml/badge.svg)](https://github.com/Divyanshu-Kumar-Dubey/alexa-plus-omniassist/actions/workflows/ci.yml)
+[![Docker Ready](https://img.shields.io/badge/Docker-compose%20ready-2496ED?logo=docker)](docker-compose.yml)
 
 > Built for the **Build, Ship, Shape: Amazon Developer Hackathon 2026** on Devpost.  
 > **Primary Track:** Alexa+ | **Mini-Challenges:** AWS Builder & Open Source | **Bonus:** Friction Logs Included.
@@ -118,12 +120,21 @@ alexa-plus-omniassist/
 
 ## 🚀 Quick Start Guide
 
-### Prerequisites
+### Option A: One-Command Docker Setup (Recommended)
+Launch both the Self-Hosted MCP Server and the Alexa+ Web Simulator simultaneously:
+```bash
+docker compose up --build
+```
+- Alexa+ Ambient Web Simulator: `http://localhost:5173`
+- Self-Hosted MCP Server: `http://localhost:3001` (`/mcp`, `/sse`, `/health`)
+
+### Option B: Local Node.js Development
+
+#### Prerequisites
 - **Node.js**: v18.0.0 or higher (v20+ recommended)
 - **npm**: v9+
 
-### 1. Install & Launch the MCP Server
-
+#### 1. Install & Launch the MCP Server
 ```bash
 cd server
 npm install
@@ -133,10 +144,9 @@ npm start
 The server will start on `http://localhost:3001` with:
 - `POST /mcp` - Streamable HTTP JSON-RPC endpoint
 - `GET /sse` - Server-Sent Events endpoint
-- `GET /health` - Server health check & tool registry summary
+- `GET /health` - Interactive glassmorphic diagnostics dashboard & tool summary
 
-### 2. Install & Launch the Alexa+ Web Simulator
-
+#### 2. Install & Launch the Alexa+ Web Simulator
 In a new terminal:
 ```bash
 cd web
@@ -169,9 +179,17 @@ Open `http://localhost:5173` in your browser.
 
 ---
 
+## 📚 Hackathon Submission Documents & Artifacts
+
+- 📋 [**Devpost Submission Copy (`devpost-submission.md`)**](devpost-submission.md) - Complete, ready-to-paste Devpost text fields, elevator pitch, architecture breakdown, and 3-minute video script.
+- 🪵 [**Friction Log & Dev Experience Report (`friction-log.md`)**](friction-log.md) - Deep-dive into MCP Streamable HTTP nuances, Bedrock schemas, and audio-visual sync (claiming the up to 10% judging bonus).
+- 📝 [**Product Feedback Report (`product-feedback.md`)**](product-feedback.md) - Mandatory Devpost feedback on MCP, Amazon Bedrock, and Devices Builder tools.
+
+---
+
 ## 👥 Team & Submission Details
 
-- **Author / Developer:** [Divyanshu Kumar Dubey](https://github.com/Divyanshu-Kumar-Dubey)
+- **Author / Developer:** [Divyanshu Kumar Dubey (Ansh Dubey)](https://github.com/Divyanshu-Kumar-Dubey)
 - **Repository:** [https://github.com/Divyanshu-Kumar-Dubey/alexa-plus-omniassist](https://github.com/Divyanshu-Kumar-Dubey/alexa-plus-omniassist)
 - **Hackathon:** [Build, Ship, Shape: Amazon Developer Hackathon 2026](https://amazonappdev2026.devpost.com/)
 - **Submission Track:** Alexa+ (Primary) | AWS Builder & Open Source (Mini Challenges)
